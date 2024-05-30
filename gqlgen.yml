@@ -89,3 +89,7 @@ models:
     fields:
       tracks:
         resolver: true
+  AddItemsToPlaylistPayload:
+    fields:
+      playlist:
+        resolver: true

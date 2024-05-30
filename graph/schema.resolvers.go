@@ -7,14 +7,59 @@ package graph
 import (
 	"context"
 	"fmt"
+	"github.com/johannessarpola/graphql-test/pkg/transform"
 
 	"github.com/johannessarpola/graphql-test/graph/model"
 	"github.com/johannessarpola/graphql-test/pkg/common"
+	"github.com/johannessarpola/graphql-test/pkg/spotify"
 )
+
+// Playlist is the resolver for the playlist field.
+func (r *addItemsToPlaylistPayloadResolver) Playlist(ctx context.Context, obj *model.AddItemsToPlaylistPayload) (*model.Playlist, error) {
+	appCtx := common.GetContext(ctx)
+
+	if obj.Playlist != nil {
+		pl, err := appCtx.SpotifyAPI.GetPlaylist(obj.Playlist.ID)
+		if err != nil {
+			return nil, err
+		}
+		tt := transform.Playlist(*pl)
+		return &tt, nil
+	} else {
+		return nil, fmt.Errorf("playlist not found")
+	}
+}
 
 // AddItemsToPlaylist is the resolver for the addItemsToPlaylist field.
 func (r *mutationResolver) AddItemsToPlaylist(ctx context.Context, input model.AddItemsToPlaylistInput) (*model.AddItemsToPlaylistPayload, error) {
-	panic(fmt.Errorf("not implemented: AddItemsToPlaylist - addItemsToPlaylist"))
+	appCtx := common.GetContext(ctx)
+
+	pd := spotify.AddTracksPayload{
+		Id:   input.PlaylistID,
+		Uris: input.Uris,
+	}
+	rs, err := appCtx.SpotifyAPI.AddTrackToPlaylist(pd)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(rs.SnapshotId) > 0 {
+		return &model.AddItemsToPlaylistPayload{
+			Code:    200,
+			Success: true,
+			Message: "Tracks added successfully",
+			Playlist: &model.Playlist{
+				ID: input.PlaylistID,
+			},
+		}, nil
+	} else {
+		return &model.AddItemsToPlaylistPayload{
+			Code:     500,
+			Success:  false,
+			Message:  rs.Error, // Could be fancier
+			Playlist: nil,
+		}, nil
+	}
 }
 
 // Tracks is the resolver for the tracks field.
@@ -29,13 +74,8 @@ func (r *playlistResolver) Tracks(ctx context.Context, obj *model.Playlist) ([]*
 	}
 
 	for _, t := range ts {
-		l = append(l, &model.Track{
-			ID:         t.Id,
-			Name:       t.Name,
-			DurationMs: t.DurationMs,
-			Explicit:   t.Explicit,
-			URI:        t.Uri,
-		})
+		tt := transform.Track(t)
+		l = append(l, &tt)
 	}
 	return l, nil
 }
@@ -50,12 +90,8 @@ func (r *queryResolver) FeaturedPlaylists(ctx context.Context) ([]*model.Playlis
 
 	var playlists []*model.Playlist
 	for _, pl := range apiData.Playlists.Items {
-		p := &model.Playlist{
-			ID:          pl.Id,
-			Name:        pl.Name,
-			Description: &pl.Description,
-		}
-		playlists = append(playlists, p)
+		pp := transform.Playlist(pl)
+		playlists = append(playlists, &pp)
 	}
 
 	return playlists, nil
@@ -77,6 +113,11 @@ func (r *queryResolver) Playlist(ctx context.Context, id string) (*model.Playlis
 	}, nil
 }
 
+// AddItemsToPlaylistPayload returns AddItemsToPlaylistPayloadResolver implementation.
+func (r *Resolver) AddItemsToPlaylistPayload() AddItemsToPlaylistPayloadResolver {
+	return &addItemsToPlaylistPayloadResolver{r}
+}
+
 // Mutation returns MutationResolver implementation.
 func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
@@ -86,6 +127,7 @@ func (r *Resolver) Playlist() PlaylistResolver { return &playlistResolver{r} }
 // Query returns QueryResolver implementation.
 func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
+type addItemsToPlaylistPayloadResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type playlistResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
