@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"github.com/johannessarpola/graphql-test/pkg/common"
 	"github.com/johannessarpola/graphql-test/pkg/spotify"
 	"log"
 	"net/http"
@@ -19,19 +19,14 @@ func main() {
 	if port == "" {
 		port = defaultPort
 	}
-
-	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
-
 	spop := "https://spotify-demo-api-fe224840a08c.herokuapp.com/v1"
-	spo := spotify.NewSpotifyAPI(spop)
-	pls, _ := spo.GetFeaturedPlaylists()
-
-	for _, pl := range pls {
-		fmt.Printf("adding playlist: %s\n", pl.Name)
+	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
+	appCtx := &common.AppCtx{
+		SpotifyAPI: spotify.NewSpotifyAPI(spop),
 	}
 
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	http.Handle("/query", srv)
+	http.Handle("/query", common.CreateContext(appCtx, srv))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))

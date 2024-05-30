@@ -9,6 +9,7 @@ import (
 	"fmt"
 
 	"github.com/johannessarpola/graphql-test/graph/model"
+	"github.com/johannessarpola/graphql-test/pkg/common"
 )
 
 // AddItemsToPlaylist is the resolver for the addItemsToPlaylist field.
@@ -16,21 +17,75 @@ func (r *mutationResolver) AddItemsToPlaylist(ctx context.Context, input model.A
 	panic(fmt.Errorf("not implemented: AddItemsToPlaylist - addItemsToPlaylist"))
 }
 
+// Tracks is the resolver for the tracks field.
+func (r *playlistResolver) Tracks(ctx context.Context, obj *model.Playlist) ([]*model.Track, error) {
+	appCtx := common.GetContext(ctx)
+	fmt.Println("resolver.Tracks")
+	var l []*model.Track
+	ts, err := appCtx.SpotifyAPI.GetTracks(obj.ID)
+
+	if err != nil {
+		return nil, err
+	}
+
+	for _, t := range ts {
+		l = append(l, &model.Track{
+			ID:         t.Id,
+			Name:       t.Name,
+			DurationMs: t.DurationMs,
+			Explicit:   t.Explicit,
+			URI:        t.Uri,
+		})
+	}
+	return l, nil
+}
+
 // FeaturedPlaylists is the resolver for the featuredPlaylists field.
 func (r *queryResolver) FeaturedPlaylists(ctx context.Context) ([]*model.Playlist, error) {
-	panic(fmt.Errorf("not implemented: FeaturedPlaylists - featuredPlaylists"))
+	appCtx := common.GetContext(ctx)
+	apiData, err := appCtx.SpotifyAPI.GetFeaturedPlaylists()
+	if err != nil {
+		return nil, err
+	}
+
+	var playlists []*model.Playlist
+	for _, pl := range apiData.Playlists.Items {
+		p := &model.Playlist{
+			ID:          pl.Id,
+			Name:        pl.Name,
+			Description: &pl.Description,
+		}
+		playlists = append(playlists, p)
+	}
+
+	return playlists, nil
 }
 
 // Playlist is the resolver for the playlist field.
 func (r *queryResolver) Playlist(ctx context.Context, id string) (*model.Playlist, error) {
-	panic(fmt.Errorf("not implemented: Playlist - playlist"))
+	appCtx := common.GetContext(ctx)
+	fmt.Println("resolver.Playlist")
+	rs, err := appCtx.SpotifyAPI.GetPlaylist(id)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.Playlist{
+		ID:          rs.Id,
+		Name:        rs.Name,
+		Description: &rs.Description,
+	}, nil
 }
 
 // Mutation returns MutationResolver implementation.
 func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
+// Playlist returns PlaylistResolver implementation.
+func (r *Resolver) Playlist() PlaylistResolver { return &playlistResolver{r} }
+
 // Query returns QueryResolver implementation.
 func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
+type playlistResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
