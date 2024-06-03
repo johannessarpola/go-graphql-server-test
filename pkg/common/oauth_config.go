@@ -2,6 +2,7 @@ package common
 
 import (
 	"context"
+	"fmt"
 	"github.com/johannessarpola/graphql-test/pkg/spotify"
 	"golang.org/x/oauth2"
 )
@@ -20,6 +21,13 @@ func NewSpotifyOauthConfig(config spotify.AuthConfig) oauth2.Config {
 }
 
 func OauthStateContext(ctx context.Context) context.Context {
-	rs := GenerateRandomString(stateLength)
-	return context.WithValue(ctx, oauthStateContextKey, rs)
+	ei, ok := ctx.Value(oauthStateContextKey).(string)
+	if ok {
+		fmt.Printf("existing random state: %s\n", ei)
+		return ctx
+	} else {
+		rs := GenerateRandomString(stateLength)
+		fmt.Printf("new random state: %s\n", rs)
+		return context.WithValue(ctx, oauthStateContextKey, rs)
+	}
 }

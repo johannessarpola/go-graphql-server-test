@@ -20,8 +20,10 @@ const appContextKey = "app"
 
 var appConfig common.AppConfig
 var oauthConfig oauth2.Config
+var state string // TODO MOve this somewhere else
 
 func init() {
+	state = common.GenerateRandomString(32)
 	var err error
 	appConfig, err = common.Load[common.AppConfig]("config/config.dev.yaml")
 	if err != nil {
@@ -54,10 +56,10 @@ func main() {
 	}
 
 	http.Handle("/", http.HandlerFunc(handleHome))
-	http.Handle("/login", withOauthState(http.HandlerFunc(handleLogin)))
+	http.Handle("/login", http.HandlerFunc(handleLogin))
 	http.Handle("/callback", withAppContext(appCtx, http.HandlerFunc(handleCallback)))
-	http.Handle("/playground", withAuthentication(playground.Handler("GraphQL playground", "/query")))
-	http.Handle("/query", withAuthentication(srv))
+	http.Handle("/playground", withAppContext(appCtx, playground.Handler("GraphQL playground", "/query")))
+	http.Handle("/query", withAppContext(appCtx, srv))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
@@ -94,8 +96,7 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleLogin(w http.ResponseWriter, r *http.Request) {
-	oauthState := common.GetOauthState(r.Context())
-	url := oauthConfig.AuthCodeURL(oauthState, oauth2.AccessTypeOffline)
+	url := oauthConfig.AuthCodeURL(state, oauth2.AccessTypeOffline)
 	http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 }
 
@@ -103,7 +104,8 @@ func handleCallback(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	appCtx := common.GetAppContext(ctx)
-	if r.FormValue("state") != common.GetOauthState(ctx) {
+	inputState := r.FormValue("state")
+	if inputState != state {
 		http.Error(w, "Invalid state", http.StatusBadRequest)
 		return
 	}
