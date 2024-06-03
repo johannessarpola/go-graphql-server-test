@@ -14,3 +14,7 @@ func GenerateRandomString(length int) string {
 	}
 	return string(b)
 }
+
+func State() string {
+	return GenerateRandomString(stateLength)
+}

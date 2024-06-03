@@ -20,17 +20,16 @@ const appContextKey = "app"
 
 var appConfig common.AppConfig
 var oauthConfig oauth2.Config
-var state string // TODO MOve this somewhere else
+var stateCache common.StateCache
 
 func init() {
-	state = common.GenerateRandomString(32)
+	stateCache = common.NewStateCache()
 	var err error
 	appConfig, err = common.Load[common.AppConfig]("config/config.dev.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
 	oauthConfig = common.NewSpotifyOauthConfig(appConfig.SpotifyConfig.Auth)
-
 }
 
 func main() {
@@ -96,7 +95,10 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleLogin(w http.ResponseWriter, r *http.Request) {
-	url := oauthConfig.AuthCodeURL(state, oauth2.AccessTypeOffline)
+	newState := common.GenerateRandomString(64)
+	stateCache.Add(newState, r.RemoteAddr)
+
+	url := oauthConfig.AuthCodeURL(newState, oauth2.AccessTypeOffline)
 	http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 }
 
@@ -105,8 +107,8 @@ func handleCallback(w http.ResponseWriter, r *http.Request) {
 
 	appCtx := common.GetAppContext(ctx)
 	inputState := r.FormValue("state")
-	if inputState != state {
-		http.Error(w, "Invalid state", http.StatusBadRequest)
+	if !stateCache.Has(inputState) {
+		http.Error(w, "Unknown state", http.StatusBadRequest)
 		return
 	}
 
