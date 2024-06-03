@@ -12,10 +12,10 @@ type API struct {
 	client *resty.Client
 }
 
-func NewSpotifyAPI(base string) *API {
+func NewSpotifyAPI(base string, client *resty.Client) *API {
 	return &API{
 		Base:   base,
-		client: resty.New(),
+		client: client,
 	}
 }
 
