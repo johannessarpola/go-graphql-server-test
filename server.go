@@ -55,7 +55,7 @@ func main() {
 	http.Handle("/login", http.HandlerFunc(handleLogin))
 	http.Handle("/callback", withAppContext(appCtx, http.HandlerFunc(handleCallback)))
 	http.Handle("/playground", withAppContext(appCtx, hasAuthentication(playground.Handler("GraphQL playground", "/query"))))
-	http.Handle("/query", withAppContext(appCtx, srv))
+	http.Handle("/query", withAppContext(appCtx, hasAuthentication(srv)))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	err := http.ListenAndServe(":"+port, nil)

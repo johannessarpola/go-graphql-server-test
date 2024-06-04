@@ -36,6 +36,11 @@ type AddTracksPayload struct {
 	Uris []string `json:"uris"`
 }
 
+type AddTracksRequest struct {
+	Position *int     `json:"position,omitempty"`
+	Uris     []string `json:"uris"`
+}
+
 type SnapshotOrError struct {
 	SnapshotId string `json:"snapshot_id"`
 	Error      string `json:"error"`

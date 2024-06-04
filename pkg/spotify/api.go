@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/go-resty/resty/v2"
 	"log/slog"
-	"strings"
 )
 
 type API struct {
@@ -86,9 +85,12 @@ func (s *API) GetTracks(id string) ([]Track, error) {
 func (s *API) AddTrackToPlaylist(pd AddTracksPayload) (*SnapshotOrError, error) {
 	path := fmt.Sprintf("%s/playlists/%s/tracks", s.Base, pd.Id)
 	var result SnapshotOrError
+	reqBody := AddTracksRequest{
+		Uris: pd.Uris,
+	}
 	resp, err := s.client.R().
-		SetPathParam("uris", strings.Join(pd.Uris, ",")).
 		SetResult(&result).
+		SetBody(reqBody).
 		Post(path)
 
 	logResponse(resp, path)

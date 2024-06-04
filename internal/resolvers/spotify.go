@@ -57,7 +57,6 @@ func AddItemsToPlaylist(ctx context.Context, input model.AddItemsToPlaylistInput
 
 func Tracks(ctx context.Context, obj *model.Playlist) ([]*model.Track, error) {
 	appCtx := app.GetAppContext(ctx)
-	fmt.Println("resolver.Tracks")
 	var l []*model.Track
 	ts, err := appCtx.SpotifyAPI.GetTracks(obj.ID)
 
@@ -90,7 +89,6 @@ func FeaturedPlaylists(ctx context.Context) ([]*model.Playlist, error) {
 
 func Playlist(ctx context.Context, id string) (*model.Playlist, error) {
 	appCtx := app.GetAppContext(ctx)
-	fmt.Println("resolver.Playlist")
 	rs, err := appCtx.SpotifyAPI.GetPlaylist(id)
 	if err != nil {
 		return nil, err
