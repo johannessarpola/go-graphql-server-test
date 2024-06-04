@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"github.com/go-resty/resty/v2"
-	"github.com/johannessarpola/graphql-test/pkg/common"
+	"github.com/johannessarpola/graphql-test/internal/app"
+	"github.com/johannessarpola/graphql-test/pkg/auth"
 	"github.com/johannessarpola/graphql-test/pkg/spotify"
+	"github.com/johannessarpola/graphql-test/pkg/state"
 	"golang.org/x/oauth2"
 	"log"
 	"net/http"
@@ -18,18 +20,19 @@ import (
 const defaultPort = "8080"
 const appContextKey = "app"
 
-var appConfig common.AppConfig
+var appConfig app.Config
 var oauthConfig oauth2.Config
-var stateCache common.StateCache
+var stateCache state.Cache
 
 func init() {
-	stateCache = common.NewStateCache()
+	stateCache = state.NewStateCache()
 	var err error
-	appConfig, err = common.Load[common.AppConfig]("config/config.dev.yaml")
+	appConfig, err = app.LoadConfig[app.Config]("config/config.dev.yaml")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("Error loading config from yaml")
+		panic(err)
 	}
-	oauthConfig = common.NewSpotifyOauthConfig(appConfig.SpotifyConfig.Auth)
+	oauthConfig = spotify.NewSpotifyOauthConfig(appConfig.SpotifyConfig.Auth)
 }
 
 func main() {
@@ -38,17 +41,11 @@ func main() {
 		port = defaultPort
 	}
 
-	cp := "config/config.dev.yaml"
-	config, err := common.Load[common.AppConfig](cp) // TODO parameter
-	if err != nil {
-		log.Fatalf("could not load config from path %s\n", cp, err)
-	}
-
 	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
-	appCtx := &common.AppContext{
+	appCtx := &app.CustomContext{
 		// This is still unauthenticated client
-		SpotifyAPI: spotify.NewSpotifyAPI(config.SpotifyConfig.Base, resty.New()),
-		UserDetails: common.UserDetails{
+		SpotifyAPI: spotify.NewSpotifyAPI(appConfig.SpotifyConfig.Base, resty.New()),
+		UserDetails: auth.UserDetails{
 			Login:         "not_logged_in",
 			Authenticated: false,
 		},
@@ -61,21 +58,25 @@ func main() {
 	http.Handle("/query", withAppContext(appCtx, srv))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		fmt.Println("failed to start server:", err)
+		panic(err)
+	}
 }
 
-func withAppContext(appContext *common.AppContext, next http.Handler) http.Handler {
+func withAppContext(appContext *app.CustomContext, next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		ctx := common.WithAppContext(r.Context(), appContext)
+		ctx := app.WithAppContext(r.Context(), appContext)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
 func hasAuthentication(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		app := common.GetAppContext(r.Context())
+		app := app.GetAppContext(r.Context())
 		if app == nil || !app.UserDetails.Authenticated {
-			http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+			handleHome(w, r)
 		} else {
 			next.ServeHTTP(w, r)
 		}
@@ -88,7 +89,7 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleLogin(w http.ResponseWriter, r *http.Request) {
-	newState := common.NewState()
+	newState := state.NewState()
 	stateCache.Add(newState, r.RemoteAddr)
 
 	url := oauthConfig.AuthCodeURL(newState, oauth2.AccessTypeOffline)
@@ -98,7 +99,7 @@ func handleLogin(w http.ResponseWriter, r *http.Request) {
 func handleCallback(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	appCtx := common.GetAppContext(ctx)
+	appCtx := app.GetAppContext(ctx)
 	inputState := r.FormValue("state")
 	if !stateCache.Has(inputState) {
 		http.Error(w, "Unknown state", http.StatusBadRequest)
@@ -108,10 +109,11 @@ func handleCallback(w http.ResponseWriter, r *http.Request) {
 	code := r.FormValue("code")
 	client, err := spotify.NewAuthenticatedClient(code, &oauthConfig, ctx)
 	if err != nil {
-		log.Fatal("Error creating hasAuthentication client", err)
+		fmt.Println("Error creating hasAuthentication client", err)
+		panic(err)
 	}
 
-	appCtx.UserDetails = common.UserDetails{
+	appCtx.UserDetails = auth.UserDetails{
 		Login:         "test@test.fi",
 		Authenticated: true,
 	}

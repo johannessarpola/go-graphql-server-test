@@ -1,4 +1,4 @@
-package common
+package state
 
 import (
 	"math/rand"
@@ -14,6 +14,8 @@ func GenerateRandomString(length int) string {
 	}
 	return string(b)
 }
+
+const stateLength = 64
 
 func NewState() string {
 	return GenerateRandomString(stateLength)

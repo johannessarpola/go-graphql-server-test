@@ -1,4 +1,4 @@
-package common
+package auth
 
 type UserDetails struct {
 	Login         string `json:"login"`

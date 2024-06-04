@@ -7,16 +7,16 @@ package graph
 import (
 	"context"
 	"fmt"
+	"github.com/johannessarpola/graphql-test/internal/app"
 	"github.com/johannessarpola/graphql-test/pkg/transform"
 
 	"github.com/johannessarpola/graphql-test/graph/model"
-	"github.com/johannessarpola/graphql-test/pkg/common"
 	"github.com/johannessarpola/graphql-test/pkg/spotify"
 )
 
 // Playlist is the resolver for the playlist field.
 func (r *addItemsToPlaylistPayloadResolver) Playlist(ctx context.Context, obj *model.AddItemsToPlaylistPayload) (*model.Playlist, error) {
-	appCtx := common.GetAppContext(ctx)
+	appCtx := app.GetAppContext(ctx)
 
 	if obj.Playlist != nil {
 		pl, err := appCtx.SpotifyAPI.GetPlaylist(obj.Playlist.ID)
@@ -32,7 +32,7 @@ func (r *addItemsToPlaylistPayloadResolver) Playlist(ctx context.Context, obj *m
 
 // AddItemsToPlaylist is the resolver for the addItemsToPlaylist field.
 func (r *mutationResolver) AddItemsToPlaylist(ctx context.Context, input model.AddItemsToPlaylistInput) (*model.AddItemsToPlaylistPayload, error) {
-	appCtx := common.GetAppContext(ctx)
+	appCtx := app.GetAppContext(ctx)
 
 	pd := spotify.AddTracksPayload{
 		Id:   input.PlaylistID,
@@ -64,7 +64,7 @@ func (r *mutationResolver) AddItemsToPlaylist(ctx context.Context, input model.A
 
 // Tracks is the resolver for the tracks field.
 func (r *playlistResolver) Tracks(ctx context.Context, obj *model.Playlist) ([]*model.Track, error) {
-	appCtx := common.GetAppContext(ctx)
+	appCtx := app.GetAppContext(ctx)
 	fmt.Println("resolver.Tracks")
 	var l []*model.Track
 	ts, err := appCtx.SpotifyAPI.GetTracks(obj.ID)
@@ -82,7 +82,7 @@ func (r *playlistResolver) Tracks(ctx context.Context, obj *model.Playlist) ([]*
 
 // FeaturedPlaylists is the resolver for the featuredPlaylists field.
 func (r *queryResolver) FeaturedPlaylists(ctx context.Context) ([]*model.Playlist, error) {
-	appCtx := common.GetAppContext(ctx)
+	appCtx := app.GetAppContext(ctx)
 	apiData, err := appCtx.SpotifyAPI.GetFeaturedPlaylists()
 	if err != nil {
 		return nil, err
@@ -99,7 +99,7 @@ func (r *queryResolver) FeaturedPlaylists(ctx context.Context) ([]*model.Playlis
 
 // Playlist is the resolver for the playlist field.
 func (r *queryResolver) Playlist(ctx context.Context, id string) (*model.Playlist, error) {
-	appCtx := common.GetAppContext(ctx)
+	appCtx := app.GetAppContext(ctx)
 	fmt.Println("resolver.Playlist")
 	rs, err := appCtx.SpotifyAPI.GetPlaylist(id)
 	if err != nil {

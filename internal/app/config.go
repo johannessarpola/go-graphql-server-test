@@ -1,4 +1,4 @@
-package common
+package app
 
 import (
 	"github.com/johannessarpola/graphql-test/pkg/spotify"
@@ -6,11 +6,11 @@ import (
 	"os"
 )
 
-type AppConfig struct {
+type Config struct {
 	SpotifyConfig spotify.Config `yaml:"spotify"`
 }
 
-func Load[T interface{}](filename string) (T, error) {
+func LoadConfig[T interface{}](filename string) (T, error) {
 	var config T
 
 	configFile, err := os.ReadFile(filename)
