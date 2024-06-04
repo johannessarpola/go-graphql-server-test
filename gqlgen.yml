@@ -66,7 +66,7 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-#  - "github.com/johannessarpola/graphql-test/graph/model"
+#  - "github.com/johannessarpola/resolvers-test/graph/model"
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -76,15 +76,15 @@ autobind:
 models:
   ID:
     model:
-      - github.com/99designs/gqlgen/graphql.ID
-      - github.com/99designs/gqlgen/graphql.Int
-      - github.com/99designs/gqlgen/graphql.Int64
-      - github.com/99designs/gqlgen/graphql.Int32
+      - github.com/99designs/gqlgen/resolvers.ID
+      - github.com/99designs/gqlgen/resolvers.Int
+      - github.com/99designs/gqlgen/resolvers.Int64
+      - github.com/99designs/gqlgen/resolvers.Int32
   Int:
     model:
-      - github.com/99designs/gqlgen/graphql.Int
-      - github.com/99designs/gqlgen/graphql.Int64
-      - github.com/99designs/gqlgen/graphql.Int32
+      - github.com/99designs/gqlgen/resolvers.Int
+      - github.com/99designs/gqlgen/resolvers.Int64
+      - github.com/99designs/gqlgen/resolvers.Int32
   Playlist:
     fields:
       tracks:
