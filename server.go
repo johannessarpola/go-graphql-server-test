@@ -57,18 +57,11 @@ func main() {
 	http.Handle("/", http.HandlerFunc(handleHome))
 	http.Handle("/login", http.HandlerFunc(handleLogin))
 	http.Handle("/callback", withAppContext(appCtx, http.HandlerFunc(handleCallback)))
-	http.Handle("/playground", withAppContext(appCtx, playground.Handler("GraphQL playground", "/query")))
+	http.Handle("/playground", withAppContext(appCtx, hasAuthentication(playground.Handler("GraphQL playground", "/query"))))
 	http.Handle("/query", withAppContext(appCtx, srv))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
-}
-
-func withOauthState(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		ctx := common.OauthStateContext(r.Context())
-		next.ServeHTTP(w, r.WithContext(ctx))
-	})
 }
 
 func withAppContext(appContext *common.AppContext, next http.Handler) http.Handler {
@@ -78,10 +71,10 @@ func withAppContext(appContext *common.AppContext, next http.Handler) http.Handl
 	})
 }
 
-func withAuthentication(next http.Handler) http.Handler {
+func hasAuthentication(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		app := common.GetAppContext(r.Context())
-		if app == nil && !app.UserDetails.Authenticated {
+		if app == nil || !app.UserDetails.Authenticated {
 			http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		} else {
 			next.ServeHTTP(w, r)
@@ -95,7 +88,7 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleLogin(w http.ResponseWriter, r *http.Request) {
-	newState := common.GenerateRandomString(64)
+	newState := common.NewState()
 	stateCache.Add(newState, r.RemoteAddr)
 
 	url := oauthConfig.AuthCodeURL(newState, oauth2.AccessTypeOffline)
@@ -115,7 +108,7 @@ func handleCallback(w http.ResponseWriter, r *http.Request) {
 	code := r.FormValue("code")
 	client, err := spotify.NewAuthenticatedClient(code, &oauthConfig, ctx)
 	if err != nil {
-		log.Fatal("Error creating withAuthentication client", err)
+		log.Fatal("Error creating hasAuthentication client", err)
 	}
 
 	appCtx.UserDetails = common.UserDetails{

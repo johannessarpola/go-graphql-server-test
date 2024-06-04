@@ -15,6 +15,6 @@ func GenerateRandomString(length int) string {
 	return string(b)
 }
 
-func State() string {
+func NewState() string {
 	return GenerateRandomString(stateLength)
 }

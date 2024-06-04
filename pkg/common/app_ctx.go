@@ -10,14 +10,8 @@ type AppContext struct {
 	UserDetails UserDetails
 }
 
-const stateLength = 32
-const oauthStateContextKey = "state"
+const stateLength = 64
 const appContextKey = "app"
-
-func GetOauthState(ctx context.Context) string {
-	oauthState, _ := ctx.Value(oauthStateContextKey).(string)
-	return oauthState
-}
 
 func GetAppContext(ctx context.Context) *AppContext {
 	appCtx, ok := ctx.Value(appContextKey).(*AppContext)
