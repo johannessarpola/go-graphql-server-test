@@ -24,5 +24,8 @@ jobs:
       - name: Build
         run: go build -v ./...
 
+      - name: Generate
+        run: go run github.com/99designs/gqlgen generate
+
       - name: Test
         run: go test -v ./...
