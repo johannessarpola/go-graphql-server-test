@@ -2,23 +2,18 @@ package main
 
 import (
 	"fmt"
+	"github.com/99designs/gqlgen/graphql/handler"
+	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/go-resty/resty/v2"
-	"github.com/johannessarpola/graphql-test/internal/app"
-	"github.com/johannessarpola/graphql-test/pkg/auth"
-	"github.com/johannessarpola/graphql-test/pkg/spotify"
-	"github.com/johannessarpola/graphql-test/pkg/state"
+	"github.com/johannessarpola/graphql-server-test/graph"
+	"github.com/johannessarpola/graphql-server-test/internal/app"
+	"github.com/johannessarpola/graphql-server-test/pkg/auth"
+	"github.com/johannessarpola/graphql-server-test/pkg/spotify"
+	"github.com/johannessarpola/graphql-server-test/pkg/state"
 	"golang.org/x/oauth2"
 	"log"
 	"net/http"
-	"os"
-
-	"github.com/99designs/gqlgen/graphql/handler"
-	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/johannessarpola/graphql-test/graph"
 )
-
-const defaultPort = "8080"
-const appContextKey = "app"
 
 var appConfig app.Config
 var oauthConfig oauth2.Config
@@ -36,11 +31,6 @@ func init() {
 }
 
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = defaultPort
-	}
-
 	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
 	appCtx := &app.CustomContext{
 		// This is still unauthenticated client
@@ -57,8 +47,8 @@ func main() {
 	http.Handle("/playground", withAppContext(appCtx, hasAuthentication(playground.Handler("GraphQL playground", "/query"))))
 	http.Handle("/query", withAppContext(appCtx, hasAuthentication(srv)))
 
-	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
-	err := http.ListenAndServe(":"+port, nil)
+	log.Printf("connect to http://localhost:%s/ for GraphQL playground", appConfig.Port)
+	err := http.ListenAndServe(":"+appConfig.Port, nil)
 	if err != nil {
 		fmt.Println("failed to start server:", err)
 		panic(err)

@@ -1,13 +1,14 @@
 package app
 
 import (
-	"github.com/johannessarpola/graphql-test/pkg/spotify"
+	"github.com/johannessarpola/graphql-server-test/pkg/spotify"
 	"gopkg.in/yaml.v3"
 	"os"
 )
 
 type Config struct {
 	SpotifyConfig spotify.Config `yaml:"spotify"`
+	Port          string         `yaml:"port"`
 }
 
 func LoadConfig[T interface{}](filename string) (T, error) {

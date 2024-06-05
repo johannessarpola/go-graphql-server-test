@@ -1,5 +1,12 @@
 spotify:
   auth:
-    client_id: "<client_id>"
-    client_secret: "<client_secret>"
-  base:
+    client_id: "client_id"
+    client_secret: "client_secret"
+    token_endpoint: "token_endpoint"
+    auth_endpoint: "auth_endpoint"
+    redirect_url: "redirect_url"
+    scopes:
+      - "scope_1"
+      - "scope_2"
+  base: "base"
+port: 8080

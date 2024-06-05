@@ -1,4 +1,4 @@
-module github.com/johannessarpola/graphql-test
+module github.com/johannessarpola/graphql-server-test
 
 go 1.22.0
 
