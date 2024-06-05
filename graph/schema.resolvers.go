@@ -6,6 +6,7 @@ package graph
 
 import (
 	"context"
+
 	"github.com/johannessarpola/go-graphql-server-test/graph/model"
 	"github.com/johannessarpola/go-graphql-server-test/internal/resolvers"
 )

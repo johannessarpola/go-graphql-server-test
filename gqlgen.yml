@@ -76,15 +76,15 @@ autobind:
 models:
   ID:
     model:
-      - github.com/99designs/gqlgen/resolvers.ID
-      - github.com/99designs/gqlgen/resolvers.Int
-      - github.com/99designs/gqlgen/resolvers.Int64
-      - github.com/99designs/gqlgen/resolvers.Int32
+      - github.com/99designs/gqlgen/graphql.ID
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
   Int:
     model:
-      - github.com/99designs/gqlgen/resolvers.Int
-      - github.com/99designs/gqlgen/resolvers.Int64
-      - github.com/99designs/gqlgen/resolvers.Int32
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
   Playlist:
     fields:
       tracks:

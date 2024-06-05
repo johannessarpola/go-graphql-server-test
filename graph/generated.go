@@ -367,7 +367,7 @@ func (ec *executionContext) field_Mutation_addItemsToPlaylist_args(ctx context.C
 	var arg0 model.AddItemsToPlaylistInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAddItemsToPlaylistInput2githubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAddItemsToPlaylistInput2githubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -601,7 +601,7 @@ func (ec *executionContext) _AddItemsToPlaylistPayload_playlist(ctx context.Cont
 	}
 	res := resTmp.(*model.Playlist)
 	fc.Result = res
-	return ec.marshalOPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylist(ctx, field.Selections, res)
+	return ec.marshalOPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylist(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_AddItemsToPlaylistPayload_playlist(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -655,7 +655,7 @@ func (ec *executionContext) _Mutation_addItemsToPlaylist(ctx context.Context, fi
 	}
 	res := resTmp.(*model.AddItemsToPlaylistPayload)
 	fc.Result = res
-	return ec.marshalNAddItemsToPlaylistPayload2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistPayload(ctx, field.Selections, res)
+	return ec.marshalNAddItemsToPlaylistPayload2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistPayload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_addItemsToPlaylist(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -849,7 +849,7 @@ func (ec *executionContext) _Playlist_tracks(ctx context.Context, field graphql.
 	}
 	res := resTmp.([]*model.Track)
 	fc.Result = res
-	return ec.marshalNTrack2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐTrackᚄ(ctx, field.Selections, res)
+	return ec.marshalNTrack2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐTrackᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Playlist_tracks(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -905,7 +905,7 @@ func (ec *executionContext) _Query_featuredPlaylists(ctx context.Context, field 
 	}
 	res := resTmp.([]*model.Playlist)
 	fc.Result = res
-	return ec.marshalNPlaylist2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylistᚄ(ctx, field.Selections, res)
+	return ec.marshalNPlaylist2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylistᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_featuredPlaylists(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -956,7 +956,7 @@ func (ec *executionContext) _Query_playlist(ctx context.Context, field graphql.C
 	}
 	res := resTmp.(*model.Playlist)
 	fc.Result = res
-	return ec.marshalOPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylist(ctx, field.Selections, res)
+	return ec.marshalOPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylist(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_playlist(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -3846,16 +3846,16 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) unmarshalNAddItemsToPlaylistInput2githubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistInput(ctx context.Context, v interface{}) (model.AddItemsToPlaylistInput, error) {
+func (ec *executionContext) unmarshalNAddItemsToPlaylistInput2githubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistInput(ctx context.Context, v interface{}) (model.AddItemsToPlaylistInput, error) {
 	res, err := ec.unmarshalInputAddItemsToPlaylistInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNAddItemsToPlaylistPayload2githubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistPayload(ctx context.Context, sel ast.SelectionSet, v model.AddItemsToPlaylistPayload) graphql.Marshaler {
+func (ec *executionContext) marshalNAddItemsToPlaylistPayload2githubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistPayload(ctx context.Context, sel ast.SelectionSet, v model.AddItemsToPlaylistPayload) graphql.Marshaler {
 	return ec._AddItemsToPlaylistPayload(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNAddItemsToPlaylistPayload2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistPayload(ctx context.Context, sel ast.SelectionSet, v *model.AddItemsToPlaylistPayload) graphql.Marshaler {
+func (ec *executionContext) marshalNAddItemsToPlaylistPayload2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐAddItemsToPlaylistPayload(ctx context.Context, sel ast.SelectionSet, v *model.AddItemsToPlaylistPayload) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -3910,7 +3910,7 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) marshalNPlaylist2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylistᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Playlist) graphql.Marshaler {
+func (ec *executionContext) marshalNPlaylist2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylistᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Playlist) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -3934,7 +3934,7 @@ func (ec *executionContext) marshalNPlaylist2ᚕᚖgithubᚗcomᚋjohannessarpol
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylist(ctx, sel, v[i])
+			ret[i] = ec.marshalNPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylist(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -3954,7 +3954,7 @@ func (ec *executionContext) marshalNPlaylist2ᚕᚖgithubᚗcomᚋjohannessarpol
 	return ret
 }
 
-func (ec *executionContext) marshalNPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylist(ctx context.Context, sel ast.SelectionSet, v *model.Playlist) graphql.Marshaler {
+func (ec *executionContext) marshalNPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylist(ctx context.Context, sel ast.SelectionSet, v *model.Playlist) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4011,7 +4011,7 @@ func (ec *executionContext) marshalNString2ᚕstringᚄ(ctx context.Context, sel
 	return ret
 }
 
-func (ec *executionContext) marshalNTrack2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐTrackᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Track) graphql.Marshaler {
+func (ec *executionContext) marshalNTrack2ᚕᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐTrackᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Track) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -4035,7 +4035,7 @@ func (ec *executionContext) marshalNTrack2ᚕᚖgithubᚗcomᚋjohannessarpola�
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNTrack2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐTrack(ctx, sel, v[i])
+			ret[i] = ec.marshalNTrack2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐTrack(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4055,7 +4055,7 @@ func (ec *executionContext) marshalNTrack2ᚕᚖgithubᚗcomᚋjohannessarpola�
 	return ret
 }
 
-func (ec *executionContext) marshalNTrack2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐTrack(ctx context.Context, sel ast.SelectionSet, v *model.Track) graphql.Marshaler {
+func (ec *executionContext) marshalNTrack2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐTrack(ctx context.Context, sel ast.SelectionSet, v *model.Track) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4344,7 +4344,7 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return res
 }
 
-func (ec *executionContext) marshalOPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgraphqlᚑtestᚋgraphᚋmodelᚐPlaylist(ctx context.Context, sel ast.SelectionSet, v *model.Playlist) graphql.Marshaler {
+func (ec *executionContext) marshalOPlaylist2ᚖgithubᚗcomᚋjohannessarpolaᚋgoᚑgraphqlᚑserverᚑtestᚋgraphᚋmodelᚐPlaylist(ctx context.Context, sel ast.SelectionSet, v *model.Playlist) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
