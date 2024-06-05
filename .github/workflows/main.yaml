@@ -27,6 +27,9 @@ jobs:
       - name: Install tool
         run: go install github.com/99designs/gqlgen
 
+      - name: Init gen
+        run: go run github.com/99designs/gqlgen init
+
       - name: Generate
         run: go run github.com/99designs/gqlgen generate
 
