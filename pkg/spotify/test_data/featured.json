@@ -1,0 +1,733 @@
+{
+  "message": "Popular Playlists",
+  "playlists": {
+    "href": "https://api.spotify.com/v1/browse/featured-playlists?offset=0&limit=20&locale=en-US,en;q%3D0.5",
+    "items": [
+      {
+        "collaborative": false,
+        "description": "Suomen suurin hittisoittolista. Kannessa Mirella ja Lauri Haav.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX64Cx4vTeaRB"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX64Cx4vTeaRB",
+        "id": "37i9dQZF1DX64Cx4vTeaRB",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000026d78035f914edcc1eb7044b7",
+            "width": null
+          }
+        ],
+        "name": "Hot Hits Suomi",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#C3F0C8",
+        "public": true,
+        "snapshot_id": "Zljo0AAAAABMjK7Y1bAnsFof2XI7z4I1",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX64Cx4vTeaRB/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX64Cx4vTeaRB"
+      },
+      {
+        "collaborative": false,
+        "description": "Tämän hetken kovimmat suomihitit. Kannessa Robin Packalen.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWUvzPS8uIABd"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWUvzPS8uIABd",
+        "id": "37i9dQZF1DWUvzPS8uIABd",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002927948d345fd73a166b9ad4f",
+            "width": null
+          }
+        ],
+        "name": "#vainsuomihitit",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "Zll6+gAAAABom2GS3DcP2oX1os5M9RmW",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWUvzPS8uIABd/tracks",
+          "total": 97
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWUvzPS8uIABd"
+      },
+      {
+        "collaborative": false,
+        "description": "Viikon parhaat uutuusbiisit samassa paketissa. Kannessa AHTI.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWXtcXUwhuzFM"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWXtcXUwhuzFM",
+        "id": "37i9dQZF1DWXtcXUwhuzFM",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002328243c75757a03ee6f01a52",
+            "width": null
+          }
+        ],
+        "name": "New Music Friday Suomi",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#A0C3D2",
+        "public": true,
+        "snapshot_id": "ZlmN4wAAAAAREXrxsfZGhmSjIBFb+tZJ",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWXtcXUwhuzFM/tracks",
+          "total": 120
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWXtcXUwhuzFM"
+      },
+      {
+        "collaborative": false,
+        "description": "Tältä listalta löydät kesän kovimmat hitit!",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXb4kyobHh5lc"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXb4kyobHh5lc",
+        "id": "37i9dQZF1DXb4kyobHh5lc",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000212969daaf7adf0979a5d78e9",
+            "width": null
+          }
+        ],
+        "name": "Kesähitit 2024",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#fae62d",
+        "public": true,
+        "snapshot_id": "Zljo0AAAAAALnt7vz1ot44ufpnelNWiI",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXb4kyobHh5lc/tracks",
+          "total": 96
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXb4kyobHh5lc"
+      },
+      {
+        "collaborative": false,
+        "description": "Congratulations to the winner of Eurovision Song Contest 2024 - Nemo 🩷",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWVCKO3xAlT1Q"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWVCKO3xAlT1Q",
+        "id": "37i9dQZF1DWVCKO3xAlT1Q",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000240acc80a2a05f1e00ede9925",
+            "width": null
+          }
+        ],
+        "name": "Eurovision 2024",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZkHIxgAAAACz61n1HqlPQmQ7FM+M0RQ/",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWVCKO3xAlT1Q/tracks",
+          "total": 37
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWVCKO3xAlT1Q"
+      },
+      {
+        "collaborative": false,
+        "description": "100 Suomi 💯 Kannessa william.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWTw1ORfckhDu"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWTw1ORfckhDu",
+        "id": "37i9dQZF1DWTw1ORfckhDu",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002cf0077aa92ced20a0337e40b",
+            "width": null
+          }
+        ],
+        "name": "100 Suomi",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "Zljo0AAAAACn5cKKf9EksSj7WPI+xc6k",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWTw1ORfckhDu/tracks",
+          "total": 76
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWTw1ORfckhDu"
+      },
+      {
+        "collaborative": false,
+        "description": "Tärkeimmät suomalaiset uutuusbiisit. Kannessa jambo.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX8txPsVVyl0W"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX8txPsVVyl0W",
+        "id": "37i9dQZF1DX8txPsVVyl0W",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002f347ac44386783867421690b",
+            "width": null
+          }
+        ],
+        "name": "Uuden suomalaisen musiikin lista",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "Zll/OAAAAACMObmiOVSQ+87yPycYbSae",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX8txPsVVyl0W/tracks",
+          "total": 114
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX8txPsVVyl0W"
+      },
+      {
+        "collaborative": false,
+        "description": "The biggest hits from the world of dance music! Becky Hill album week!",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX7SEhw42DW5b"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX7SEhw42DW5b",
+        "id": "37i9dQZF1DX7SEhw42DW5b",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002772d16e707edc39a3ec46ff7",
+            "width": null
+          }
+        ],
+        "name": "Club Hits 2024",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZlnEogAAAADDVtVcZAL3XKB4SICY3VFW",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX7SEhw42DW5b/tracks",
+          "total": 103
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX7SEhw42DW5b"
+      },
+      {
+        "collaborative": false,
+        "description": "Nousussa olevat hitit. Kannessa Sabrina Carpenter.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXdJFpsr4Sn91"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdJFpsr4Sn91",
+        "id": "37i9dQZF1DXdJFpsr4Sn91",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002e5a208df6baee5c4a97c19aa",
+            "width": null
+          }
+        ],
+        "name": "Nousussa",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZlmN9QAAAAB4KzKCbupwHuHBZIWIItj1",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdJFpsr4Sn91/tracks",
+          "total": 105
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXdJFpsr4Sn91"
+      },
+      {
+        "collaborative": false,
+        "description": "Juhannuksen paras soittolista on tässä.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX0vQEXzEKTAZ"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0vQEXzEKTAZ",
+        "id": "37i9dQZF1DX0vQEXzEKTAZ",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000026c4ca7956a2958a999127da6",
+            "width": null
+          }
+        ],
+        "name": "Juhannus 2024",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "Zj4UHAAAAACo/L98Q5J7yBLkc4g7xnIb",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0vQEXzEKTAZ/tracks",
+          "total": 110
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX0vQEXzEKTAZ"
+      },
+      {
+        "collaborative": false,
+        "description": "Billie Eilish is on top of the Hottest 50!",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M",
+        "id": "37i9dQZF1DXcBWIGoYBM5M",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000215544a58147595d5c4028e92",
+            "width": null
+          }
+        ],
+        "name": "Today’s Top Hits",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#FFFFFF",
+        "public": true,
+        "snapshot_id": "Zl3yDgAAAABlJX6L9it15Ys9Si7cm7QP",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXcBWIGoYBM5M"
+      },
+      {
+        "collaborative": false,
+        "description": "Fiilistele parhaita kotimaisia kesähittiklassikoita.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWYgfT9H9dk8g"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYgfT9H9dk8g",
+        "id": "37i9dQZF1DWYgfT9H9dk8g",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002549010e97b25573d0d72c9e3",
+            "width": null
+          }
+        ],
+        "name": "Kaikkien aikojen suomalaiset kesähitit",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZKJdiAAAAADE47mZDTRbtXilELsg04QW",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYgfT9H9dk8g/tracks",
+          "total": 66
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWYgfT9H9dk8g"
+      },
+      {
+        "collaborative": false,
+        "description": "the beat of your drift",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWWY64wDtewQt"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWWY64wDtewQt",
+        "id": "37i9dQZF1DWWY64wDtewQt",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000028a9e50e6e634a604fa545f72",
+            "width": null
+          }
+        ],
+        "name": "phonk",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZlnhtAAAAAAFU4yfpj6JJ7pZ1pF2ydOS",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWWY64wDtewQt/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWWY64wDtewQt"
+      },
+      {
+        "collaborative": false,
+        "description": "Kokoelma kauneimpia ja herkimpiä kotimaisia biisejä.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWW1FLvEAcimu"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWW1FLvEAcimu",
+        "id": "37i9dQZF1DWW1FLvEAcimu",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000020080bc85f240450e9019f2fe",
+            "width": null
+          }
+        ],
+        "name": "Herkimmät suomalaiset biisit",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZkRLRQAAAAA8LVAfGb8H+1XqozY3UXFA",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWW1FLvEAcimu/tracks",
+          "total": 94
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWW1FLvEAcimu"
+      },
+      {
+        "collaborative": false,
+        "description": "Ten hours long continuous white noise to help you relax and let go. ",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWUZ5bk6qqDSy"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWUZ5bk6qqDSy",
+        "id": "37i9dQZF1DWUZ5bk6qqDSy",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002e3c324443862abeb46220f00",
+            "width": null
+          }
+        ],
+        "name": "White Noise 10 Hours",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "Zh1O4gAAAAACa4k38WcXi3OSmjn5TZqo",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWUZ5bk6qqDSy/tracks",
+          "total": 214
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWUZ5bk6qqDSy"
+      },
+      {
+        "collaborative": false,
+        "description": "⚫️⚪️ PEDRO PEDRO PEDRO ⚪️⚫️",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX01LszHBn1s8"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX01LszHBn1s8",
+        "id": "37i9dQZF1DX01LszHBn1s8",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002700cfaa4c059548d5776c91f",
+            "width": null
+          }
+        ],
+        "name": "pov",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#f037a5",
+        "public": true,
+        "snapshot_id": "ZldFGAAAAABJqNxnDrOXKJt3KzsqDcvO",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX01LszHBn1s8/tracks",
+          "total": 945
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX01LszHBn1s8"
+      },
+      {
+        "collaborative": false,
+        "description": "Ikivihreitä iskelmiä vuosikymmenten varrelta. Kannessa Kaija Koo.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX4LE3mRVj255"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4LE3mRVj255",
+        "id": "37i9dQZF1DX4LE3mRVj255",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000026ea275f8e168dd1d89148be1",
+            "width": null
+          }
+        ],
+        "name": "Iskelmäklassikot",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZkdaWgAAAACg1tJYm3Rm9VoD4rk2HdhX",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4LE3mRVj255/tracks",
+          "total": 70
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX4LE3mRVj255"
+      },
+      {
+        "collaborative": false,
+        "description": "Mielenkiintoisimmat biisit ensisoitossa. 🦋 Kannessa Vera Wall.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXbsb4MvKbVAY"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXbsb4MvKbVAY",
+        "id": "37i9dQZF1DXbsb4MvKbVAY",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000029571d5563ed4001cc8e0705c",
+            "width": null
+          }
+        ],
+        "name": "Ensisoitossa",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "Zll/vAAAAACdVJZrITVfCfDTl40jxQFw",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXbsb4MvKbVAY/tracks",
+          "total": 70
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXbsb4MvKbVAY"
+      },
+      {
+        "collaborative": false,
+        "description": "The summer needs dance hits 😎☀️",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWZ7eJRBxKzdO"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWZ7eJRBxKzdO",
+        "id": "37i9dQZF1DWZ7eJRBxKzdO",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002c7ea8e62ee86671eaa4c341c",
+            "width": null
+          }
+        ],
+        "name": "Summer Dance Hits 2024",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZllLQAAAAABw3iA/DuQUvvopkdIedIPc",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWZ7eJRBxKzdO/tracks",
+          "total": 120
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWZ7eJRBxKzdO"
+      },
+      {
+        "collaborative": false,
+        "description": "Ota haltuun parhaat iskelmäuutuudet. Kannessa Mikko Harju.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWVOar3rtQpLZ"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWVOar3rtQpLZ",
+        "id": "37i9dQZF1DWVOar3rtQpLZ",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000002cb813ebe1939cd1225452d60",
+            "width": null
+          }
+        ],
+        "name": "Iskelmä kuuluu kaikille",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": "#ffffff",
+        "public": true,
+        "snapshot_id": "ZkZz0AAAAACLp/V4SgonQaYC+8rkoBMQ",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWVOar3rtQpLZ/tracks",
+          "total": 80
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWVOar3rtQpLZ"
+      }
+    ],
+    "limit": 20,
+    "next": "https://api.spotify.com/v1/browse/featured-playlists?offset=20&limit=20&locale=en-US,en;q%3D0.5",
+    "offset": 0,
+    "previous": null,
+    "total": 100
+  }
+}
