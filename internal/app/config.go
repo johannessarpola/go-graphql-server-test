@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/johannessarpola/graphql-server-test/pkg/spotify"
+	"github.com/johannessarpola/go-graphql-server-test/pkg/spotify"
 	"gopkg.in/yaml.v3"
 	"os"
 )

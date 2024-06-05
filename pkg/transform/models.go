@@ -1,8 +1,8 @@
 package transform
 
 import (
-	"github.com/johannessarpola/graphql-server-test/graph/model"
-	"github.com/johannessarpola/graphql-server-test/pkg/spotify"
+	"github.com/johannessarpola/go-graphql-server-test/graph/model"
+	"github.com/johannessarpola/go-graphql-server-test/pkg/spotify"
 )
 
 func Track(t spotify.Track) model.Track {

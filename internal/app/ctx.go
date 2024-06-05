@@ -2,8 +2,8 @@ package app
 
 import (
 	"context"
-	"github.com/johannessarpola/graphql-server-test/pkg/auth"
-	"github.com/johannessarpola/graphql-server-test/pkg/spotify"
+	"github.com/johannessarpola/go-graphql-server-test/pkg/auth"
+	"github.com/johannessarpola/go-graphql-server-test/pkg/spotify"
 )
 
 type CustomContext struct {
